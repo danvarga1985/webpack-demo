@@ -4,16 +4,17 @@ import { parseInputs } from "./utils/parse-inputs";
 export const run = (alertService, componentService) => {
   alertService.hideErrors();
   
-  componentService.onClick(() => {
+  componentService.onClick(() => { // addEventListener
     alertService.hideErrors();
-    const inputs = componentService.getInputs();
-    const parsedInputs = parseInputs(...inputs);
+    const inputs = componentService.getInputs(); //[value1, value2] - string
+    const parsedInputs = parseInputs(...inputs); //[value1, value2] - int
+
     
-    if (inputsAreValid(...parsedInputs)) {
+    if (inputsAreValid(...parsedInputs)) { // inputs are number type
       const [numA, numB] = parsedInputs;
-      componentService.setResult(numA + numB);
-    } else {
-      componentService.setResult("");
+      componentService.setResult(numA + numB); // set the result in the dom
+    } else { // display the invalid inputs with an error messege
+      componentService.setResult(""); 
       alertService.handleAdditionError(inputs, parsedInputs);
     }
   });

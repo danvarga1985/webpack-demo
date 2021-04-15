@@ -5,6 +5,7 @@ export class AlertService {
     this.errorBox = document.getElementById("error");
   }
 
+  // Compose an error message by iterating through the user inputs, adding every faulty input to the message.
   handleAdditionError(inputs, numbers) {
     const fullMessage = inputs.reduce((message, str, index) => {
       if (inputsAreValid(numbers[index])) {
