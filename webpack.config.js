@@ -6,4 +6,11 @@ module.exports = {
     output: {
         filename: "main.js",
     },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            // Order is important! Processed in reverse order -> transform css, then inject it into the dom
+            use: ["style-loader", "css-loader"],
+        }]
+    }
 }
