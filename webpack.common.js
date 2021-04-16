@@ -1,11 +1,7 @@
-const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
-    // development won't minify the code
-    mode: "development",
     entry: "./src/index.js",
-    output: {
-        filename: "main.js",
-    },
     module: {
         rules: [{
             test: /\.scss$/,
@@ -16,5 +12,10 @@ module.exports = {
                 "sass-loader", // 1. Turn sass into css
             ],
         }]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/template.html",
+        })
+    ],
 }
