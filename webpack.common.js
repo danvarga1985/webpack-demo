@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        main: "./src/index.js",
+        vendor: "./src/vendor.js"
+    },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.scss$/,
                 // Order is important! Processed in reverse order -> transform css, then inject it into the dom
                 use: [

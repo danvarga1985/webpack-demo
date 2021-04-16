@@ -8,7 +8,7 @@ module.exports = merge(common, {
     // development won't minify the code
     mode: "development",
     output: {
-        filename: "main.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
     devServer: {
